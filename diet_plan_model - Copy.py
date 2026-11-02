@@ -10,9 +10,12 @@ Original file is located at
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
-# Load the dataset
-file_path = '/content/food_nutrition_dataset (2).csv'
+# Load the dataset using a safe relative path
+file_path = os.path.join(
+    os.path.dirname(__file__), "food_nutrition_dataset (2).csv"
+)
 df = pd.read_csv(file_path)
 
 # Display basic information
