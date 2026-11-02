@@ -18,12 +18,14 @@ file_path = os.path.join(
 )
 df = pd.read_csv(file_path)
 
-# Display basic information
-print("--- Dataset Summary ---")
-display(df.info())
+import streamlit as st
 
-print("\n--- First 5 Rows ---")
-display(df.head())
+# Display basic information in Streamlit
+st.subheader("Dataset Summary")
+st.write(f"**Total Rows:** {df.shape[0]}, **Total Columns:** {df.shape[1]}")
+
+st.subheader("First 5 Rows")
+st.dataframe(df.head())
 
 print("\n--- Missing Values ---")
 print(df.isnull().sum())
